@@ -46,4 +46,101 @@ RSpec.describe Processor do
       expect(processor.assign_key_d.length).to eq(2)
     end
   end
+
+  describe '#offset' do
+    it 'generates the offset' do
+        processor = Processor.new
+        date = Time.now
+        offset = (Time.now.strftime("%d%m%y").to_i ** 2).to_s[-4..-1]
+        expect(processor.offset(date)).to eq(offset)
+    end
+  end
+
+  describe '#square_number' do
+    it 'can square a number' do
+      processor = Processor.new
+
+    expect(processor.square_number(2)).to eq(4)
+    end
+  end
+
+  describe '#assign_offset_a' do
+    it 'assigns first digit of offset to offset a' do
+      processor = Processor.new
+      date = Time.now
+      processor.offset(date)
+
+      expect(processor.assign_offset_a(date)).to be >= 0
+      expect(processor.assign_offset_a(date).to_s.length). to be(1)
+    end
+  end
+
+  describe '#assign_offset_b' do
+    it 'assigns first digit of offset to offset b' do
+      processor = Processor.new
+      date = Time.now
+      processor.offset(date)
+
+      expect(processor.assign_offset_b(date)).to be >= 0
+      expect(processor.assign_offset_b(date).to_s.length). to be(1)
+    end
+  end
+
+  describe '#assign_offset_c' do
+    it 'assigns first digit of offset to offset c' do
+      processor = Processor.new
+      date = Time.now
+      processor.offset(date)
+
+      expect(processor.assign_offset_c(date)).to be >= 0
+      expect(processor.assign_offset_c(date).to_s.length). to be(1)
+    end
+  end
+
+  describe '#assign_offset_d' do
+    it 'assigns first digit of offset to offset d' do
+      processor = Processor.new
+      date = Time.now
+      processor.offset(date)
+
+      expect(processor.assign_offset_d(date)).to be >= 0
+      expect(processor.assign_offset_d(date).to_s.length). to be(1)
+    end
+  end
+
+  describe '#shift_a' do
+    it 'adds key a to offset a' do
+      processor = Processor.new
+      date = Time.now
+
+      expect(processor.assign_shift_a(date)).to be > 0
+    end
+  end
+
+  describe '#shift_b' do
+    it 'adds key b to offset b' do
+      processor = Processor.new
+      date = Time.now
+
+      expect(processor.assign_shift_b(date)).to be > 0
+    end
+  end
+
+  describe '#shift_c' do
+    it 'adds key c to offset c' do
+      processor = Processor.new
+      date = Time.now
+
+      expect(processor.assign_shift_c(date)).to be > 0
+    end
+  end
+
+  describe '#shift_d' do
+    it 'adds key d to offset d' do
+      processor = Processor.new
+      date = Time.now
+
+      expect(processor.assign_shift_d(date)).to be > 0
+    end
+  end
 end
