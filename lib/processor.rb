@@ -11,6 +11,14 @@ class Processor
     rand(99999).to_s.rjust(5, "0")
   end
 
+  def key(key)
+    if key.length == 5
+      key
+    else
+      key = generate_random_code
+    end
+  end
+
   def assign_key_a
     key_a = @random_code[0..1]
   end
@@ -28,7 +36,11 @@ class Processor
   end
 
   def offset(date)
-    number = date.strftime("%d%m%y").to_i
+    if date.length == 6
+      number = date.to_i
+    else
+      number = date.strftime("%d%m%y").to_i
+    end
     square_number(number).to_s[-4..-1]
 
   end
