@@ -9,9 +9,8 @@ Functionality - Well Below Expectations. Does not have the required number of
                 classes successfully implemented.  
 
 Object Oriented Programming - Below Expectations. Project may have too many  
-                              of too few classes, or include knowledge/  
-                              information/behavior that isnt necessary for a  
-                              given class to know.  
+of too few classes, or include knowledge/information/behavior that isnt 
+necessary for a given class to know.  
 
 Ruby Conventions - Meets Expectations. Code is mostly properly indented,  
                   spaced and lines are not excessively long.  
