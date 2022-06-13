@@ -1,38 +1,31 @@
 class Processor
 
-  attr_reader :random_code
-
-  def initialize
-    @random_code = generate_random_code
-
-  end
-
   def generate_random_code
     rand(99999).to_s.rjust(5, "0")
   end
 
-  def key(key)
-    if key.length == 5
-      key
-    else
+  def key_generator(key)
+    if key.nil?
       key = generate_random_code
+    else
+      key
     end
   end
 
-  def assign_key_a
-    key_a = @random_code[0..1]
+  def assign_key_a(key)
+    key_generator(key)[0..1]
   end
 
-  def assign_key_b
-    key_b = @random_code[1..2]
+  def assign_key_b(key)
+    key_generator(key)[1..2]
   end
 
-  def assign_key_c
-    key_c = @random_code[2..3]
+  def assign_key_c(key)
+    key_generator(key)[2..3]
   end
 
-  def assign_key_d
-    key_d = @random_code[3..4]
+  def assign_key_d(key)
+    key_generator(key)[3..4]
   end
 
   def offset(date)
@@ -65,19 +58,19 @@ class Processor
     offset(date)[3].to_i
   end
 
-  def assign_shift_a(date)
-    assign_key_a.to_i + assign_offset_a(date)
+  def assign_shift_a(key, date)
+    assign_key_a(key).to_i + assign_offset_a(date)
   end
 
-  def assign_shift_b(date)
-    assign_key_b.to_i + assign_offset_b(date)
+  def assign_shift_b(key, date)
+    assign_key_b(key).to_i + assign_offset_b(date)
   end
 
-  def assign_shift_c(date)
-    assign_key_c.to_i + assign_offset_c(date)
+  def assign_shift_c(key, date)
+    assign_key_c(key).to_i + assign_offset_c(date)
   end
 
-  def assign_shift_d(date)
-    assign_key_d.to_i + assign_offset_d(date)
+  def assign_shift_d(key, date)
+    assign_key_d(key).to_i + assign_offset_d(date)
   end
 end
