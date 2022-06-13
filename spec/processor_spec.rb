@@ -14,45 +14,49 @@ RSpec.describe Processor do
   describe '#assign key a' do
     it 'assigns 2 digits to key a' do
       processor = Processor.new
+      key = "12345"
 
-      expect(processor.assign_key_a.to_i).to be > 0
-      expect(processor.assign_key_a.length).to eq(2)
+      expect(processor.assign_key_a(key).to_i).to be > 0
+      expect(processor.assign_key_a(key).length).to eq(2)
     end
   end
 
   describe '#assign key b' do
     it 'assigns 2 digits to key b' do
       processor = Processor.new
+      key = "12345"
 
-      expect(processor.assign_key_b.to_i).to be > 0
-      expect(processor.assign_key_b.length).to eq(2)
+      expect(processor.assign_key_b(key).to_i).to be > 0
+      expect(processor.assign_key_b(key).length).to eq(2)
     end
   end
 
   describe '#assign key c' do
     it 'assigns 2 digits to key c' do
       processor = Processor.new
+      key ="12345"
 
-      expect(processor.assign_key_c.to_i).to be > 0
-      expect(processor.assign_key_c.length).to eq(2)
+      expect(processor.assign_key_c(key).to_i).to be > 0
+      expect(processor.assign_key_c(key).length).to eq(2)
     end
   end
 
   describe '#assign key d' do
     it 'assigns 2 digits to key d' do
       processor = Processor.new
+      key = "12345"
 
-      expect(processor.assign_key_d.to_i).to be > 0
-      expect(processor.assign_key_d.length).to eq(2)
+      expect(processor.assign_key_d(key).to_i).to be > 0
+      expect(processor.assign_key_d(key).length).to eq(2)
     end
   end
 
   describe '#offset' do
     it 'generates the offset' do
         processor = Processor.new
-        date = Time.now
-        offset = (Time.now.strftime("%d%m%y").to_i ** 2).to_s[-4..-1]
-        expect(processor.offset(date)).to eq(offset)
+        date = "040895"
+
+        expect(processor.offset(date)).to eq("1025")
     end
   end
 
@@ -67,7 +71,7 @@ RSpec.describe Processor do
   describe '#assign_offset_a' do
     it 'assigns first digit of offset to offset a' do
       processor = Processor.new
-      date = Time.now
+      date = "040895"
       processor.offset(date)
 
       expect(processor.assign_offset_a(date)).to be >= 0
@@ -78,7 +82,7 @@ RSpec.describe Processor do
   describe '#assign_offset_b' do
     it 'assigns first digit of offset to offset b' do
       processor = Processor.new
-      date = Time.now
+      date = "040895"
       processor.offset(date)
 
       expect(processor.assign_offset_b(date)).to be >= 0
@@ -89,7 +93,7 @@ RSpec.describe Processor do
   describe '#assign_offset_c' do
     it 'assigns first digit of offset to offset c' do
       processor = Processor.new
-      date = Time.now
+      date = "040895"
       processor.offset(date)
 
       expect(processor.assign_offset_c(date)).to be >= 0
@@ -100,7 +104,7 @@ RSpec.describe Processor do
   describe '#assign_offset_d' do
     it 'assigns first digit of offset to offset d' do
       processor = Processor.new
-      date = Time.now
+      date = "040895"
       processor.offset(date)
 
       expect(processor.assign_offset_d(date)).to be >= 0
@@ -111,36 +115,40 @@ RSpec.describe Processor do
   describe '#shift_a' do
     it 'adds key a to offset a' do
       processor = Processor.new
-      date = Time.now
+      date = "040895"
+      key = "02715"
 
-      expect(processor.assign_shift_a(date)).to be > 0
+      expect(processor.assign_shift_a(key, date)).to be > 0
     end
   end
 
   describe '#shift_b' do
     it 'adds key b to offset b' do
       processor = Processor.new
-      date = Time.now
+      date = "040895"
+      key = "02715"
 
-      expect(processor.assign_shift_b(date)).to be > 0
+      expect(processor.assign_shift_b(key, date)).to be > 0
     end
   end
 
   describe '#shift_c' do
     it 'adds key c to offset c' do
       processor = Processor.new
-      date = Time.now
+      date = "040895"
+      key = "02715"
 
-      expect(processor.assign_shift_c(date)).to be > 0
+      expect(processor.assign_shift_c(key, date)).to be > 0
     end
   end
 
   describe '#shift_d' do
     it 'adds key d to offset d' do
       processor = Processor.new
-      date = Time.now
+      date = "040895"
+      key = "02715"
 
-      expect(processor.assign_shift_d(date)).to be > 0
+      expect(processor.assign_shift_d(key, date)).to be > 0
     end
   end
 end
