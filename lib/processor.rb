@@ -32,7 +32,7 @@ class Processor
     if date.length == 6
       number = date.to_i
     else
-      number = date.strftime("%d%m%y").to_i
+      number = Time.now.strftime("%d%m%y").to_i
     end
     square_number(number).to_s[-4..-1]
 
