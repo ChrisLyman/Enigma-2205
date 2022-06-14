@@ -7,7 +7,7 @@ class Encryptor
     @processor = Processor.new
     @alphabet = ("a".."z").to_a << " "
   end
-  def call(message, key, date)
+  def message_encrypt(message, key, date)
     message_array = []
     counter = 0
     shifts =[@processor.assign_shift_a(key, date), @processor.assign_shift_b(key, date), @processor.assign_shift_c(key, date), @processor.assign_shift_d(key,date)]

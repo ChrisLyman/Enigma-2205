@@ -1,4 +1,4 @@
-require './lib/encryptor'
+require './spec/spec_helper'
 
 RSpec.describe Encryptor do
   describe '#initialize' do
@@ -9,12 +9,12 @@ RSpec.describe Encryptor do
     end
   end
 
-  describe '#call' do
+  describe '#message_encrypt' do
     it 'will encrypt a message' do
       encryptor = Encryptor.new
       processor = Processor.new
 
-      expect(encryptor.call("hello world", "02715", "040895")).to eq({encryption: "keder ohulw", key: "02715", date: "040895"})
+      expect(encryptor.message_encrypt("hello world", "02715", "040895")).to eq({encryption: "keder ohulw", key: "02715", date: "040895"})
     end
   end
 end
