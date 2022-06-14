@@ -1,6 +1,14 @@
-require './lib/processor'
+require './spec/spec_helper'
 
 RSpec.describe Processor do
+  describe '#initialize' do
+    it 'exists' do
+      processor = Processor.new
+
+      expect(processor).to be_instance_of(Processor)
+    end
+  end
+
   describe '#generate random key' do
     it 'can generate a 5 digit random key' do
       processor = Processor.new
